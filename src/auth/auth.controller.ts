@@ -2,8 +2,6 @@ import {
   Body,
   Controller,
   Get,
-  HttpCode,
-  HttpStatus,
   Post,
   UseGuards,
   Request,
@@ -25,7 +23,7 @@ export class AuthController {
 
   @Post('login')
   signIn(@Body() loginDto: LoginDto) {
-    return this.authService.signIn(loginDto.username, loginDto.password);
+    //return this.authService.signIn(loginDto.username, loginDto.password);
   }
 
   @ApiBearerAuth()
