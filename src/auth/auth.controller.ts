@@ -5,6 +5,8 @@ import {
   Post,
   UseGuards,
   Request,
+  HttpCode,
+  HttpStatus,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
@@ -15,15 +17,15 @@ import { ApiBearerAuth } from '@nestjs/swagger';
 export class AuthController {
   constructor(private authService: AuthService) {}
 
-  /*@HttpCode(HttpStatus.OK)
-  @Post('login')
+  @HttpCode(HttpStatus.OK)
+  /*@Post('login')
   signIn(@Body() signInDto: Record<string, any>) {
     return this.authService.signIn(signInDto.username, signInDto.password);
   }*/
 
   @Post('login')
   signIn(@Body() loginDto: LoginDto) {
-    //return this.authService.signIn(loginDto.username, loginDto.password);
+    return this.authService.signIn(loginDto);
   }
 
   @ApiBearerAuth()

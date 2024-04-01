@@ -30,4 +30,9 @@ export class UsersService {
     const createdUser = await this.userModel.create(createUserDto);
     return createdUser;
   }
+
+  async findOne(username){
+    const user=await this.userModel.findOne({username:username})
+    return user;
+  }
 }
